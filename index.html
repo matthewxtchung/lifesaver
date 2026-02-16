@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <div id="landing"">
+            <h1>Trying to save by <span id="month"></span>?</h1>
+            <p>
+                Hope isn’t a strategy. See exactly what you can spend each week and still reach your goal.
+            </p>
+            <button class="button" onclick="start()">Get Started</button>
+        </div>
+
+        <!-- question 1 -->
+        <div class="step card" id="step1">
+            <span class="step-label">Question 1</span>
+            <h2>What is your weekly income?</h2>
+            <p class="subtext">
+            On average, how much money do you generate per week? Don’t worry, this information stays between us.
+            </p>
+            <input type="number" id="income" placeholder="Enter amount">
+            <button class="button" onclick="nextStep(1)">Next</button>
+        </div>
+
+        <!-- question 2 -->
+        <div class="step card" id="step2">
+            <span class="step-label">Question 2</span>
+            <h2>What are your weekly fixed expenses?</h2>
+            <p class="subtext">
+            How much are you guaranteed to spend each week on subscriptions, recurring payments, rent, bills, etc.
+            </p>
+            <input type="number" id="expenses" placeholder="Enter amount">
+            <button class="button" onclick="nextStep(2)">Next</button>
+        </div>
+
+        <!-- question 3 -->
+        <div class="step card" id="step3">
+            <span class="step-label">Question 3</span>
+            <h2>What are your savings goals?</h2>
+            <p class="subtext">
+            Tell us where you are now and where you want to be and we’ll calculate the fastest realistic path.
+            </p>
+            <input type="number" id="currentSavings" placeholder="Current total savings">
+            <input type="number" id="targetSavings" placeholder="Target total savings">
+            <input type="date" id="date">
+            <button class="button" onclick="finish()">Calculate</button>
+        </div>
+
+        <div id="result">
+
+            <div class="tabs">
+                <button class="tab active" onclick="showScenario('splurge')">Splurger</button>
+                <button class="tab" onclick="showScenario('balanced')">Balanced</button>
+                <button class="tab" onclick="showScenario('aggressive')">Aggressive Saver</button>
+            </div>
+
+            <div id="scenarioContent"></div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+<header class="header">
+    lifesaver
+</header>
+</html>
