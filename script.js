@@ -116,29 +116,27 @@ function finish() {
     document.getElementById("step3").style.display = "none";
     document.getElementById("result").style.display = "flex";
 
-    // Calculate scenarios based on how much extra to save beyond the minimum
     const extraAvailable = weeklyAvailable - requiredPerWeek;
     
     const scenarios = {
         splurge: {
             title: "Splurger",
-            save: Math.round(requiredPerWeek),  // Save minimum needed
+            save: Math.round(requiredPerWeek),
         },
         balanced: {
             title: "Balanced",
-            save: Math.round(requiredPerWeek + extraAvailable * 0.5),  // Save minimum + 50% of extra
+            save: Math.round(requiredPerWeek + extraAvailable * 0.5),
         },
         aggressive: {
             title: "Aggressive Saver",
-            save: Math.round(requiredPerWeek + extraAvailable * 0.8),  // Save minimum + 80% of extra
+            save: Math.round(requiredPerWeek + extraAvailable * 0.8),
         }
     };
 
-    // Calculate spend amounts for each scenario
     Object.keys(scenarios).forEach(type => {
         const save = scenarios[type].save;
         scenarios[type].spend = Math.round(weeklyAvailable - save);
-        scenarios[type].possible = true;  // All are possible since we passed the initial check
+        scenarios[type].possible = true;
     });
 
     window.scenarios = scenarios;
